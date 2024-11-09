@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - SciAstra Platform</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to SciAstra</h1>
+      <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.php">Courses</a></li>
+            <li><a href="blog.php">Blog</a></li>
+            <li><a href="login.php">Login</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <section class="courses">
+      <h2>Discounted Courses</h2>
+      <!-- <a href="course.php">Buy Course From here</a> -->
+      <div class="course-list" id="courses-list">
+        <!-- Dynamic course items will be inserted here using JavaScript -->
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 SciAstra</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const coursesList = document.getElementById("courses-list");
+
+        // Example static data for discounted courses
+        const courses = [
+          { title: "Web Development", price: "$29.99", discount: "20%" },
+          { title: "Data Science", price: "$49.99", discount: "15%" },
+          { title: "Data Science", price: "$49.99", discount: "15%" },
+          { title: "Data Science", price: "$49.99", discount: "15%" },
+          { title: "Data Science", price: "$49.99", discount: "15%" },
+          { title: "Data Science", price: "$49.99", discount: "15%" },
+        ];
+
+        courses.forEach((course) => {
+          const courseDiv = document.createElement("div");
+          courseDiv.classList.add("course-item");
+          courseDiv.innerHTML = `
+            <h3>${course.title}</h3>
+            <p>Price: <strike>${course.price}</strike> <strong>${course.price}</strong> (Discount: ${course.discount})</p>
+            <button onclick="location.href='course.php'">Buy Now</button>
+        `;
+          coursesList.appendChild(courseDiv);
+        });
+      });
+    </script>
+  </body>
+</html>
